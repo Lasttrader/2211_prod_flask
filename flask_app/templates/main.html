@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>АНКЕТА</title>
+</head>
+
+<head>
+    <h1>АНКЕТА</h1>
+
+</head>
+
+<body>
+    <form action="{{url_for('main')}}" method="POST">
+        <fieldset>
+            <small>age</small>
+            <input type="text" name="age">
+            <br>
+            <br>
+            <small>job</small>
+            <input type="text" name="job">
+            <br>
+            <br>
+            <small>marital</small>
+            <input type="text" name="marital">
+            <br>
+            <br>
+            <small>education</small>
+            <input type="text" name="education">
+            <br>
+            <br>
+            <small>default</small>
+            <input type="text" name="default">
+            <br>
+            <br>
+            <small>balance</small>
+            <input type="text" name="balance">
+            <br>
+            <br>
+            <small>housing</small>
+            <input type="text" name="housing">
+            <br>
+            <br>
+            <small>loan</small>
+            <input type="text" name="loan">
+            <br>
+            <br>
+            <small>contact</small>
+            <input type="text" name="contact">
+            <br>
+            <br> <small>day</small>
+            <input type="text" name="day">
+            <br>
+            <br>
+            <small>month</small>
+            <input type="text" name="month">
+            <br>
+            <br>
+            <small>duration</small>
+            <input type="text" name="duration">
+            <br>
+            <br>
+            <small>campaign</small>
+            <input type="text" name="campaign">
+            <br>
+            <br>
+            <small>pdays</small>
+            <input type="text" name="pdays">
+            <br>
+            <br>
+            <small>previous</small>
+            <input type="text" name="previous">
+            <br>
+            <br>
+            <small>poutcome</small>
+            <input type="text" name="poutcome">
+            <br>
+            <br>
+            <button type="submit">ОТПРАВИТЬ АНКЕТУ</button>
+        </fieldset>
+    </form>
+
+    <div>
+        {%if result %}
+        <p>НАШ ОТВЕТ КЛИЕНТУ</p>
+        <p>{{result}}</p>
+        {% endif %}
+    </div>
+</body>
+
+</html>
