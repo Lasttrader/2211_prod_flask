@@ -7,4 +7,17 @@
 6. написать app.py в котором будут все функции для работы сервера flask
 7. настроить взаимодействие формы html и сервера
 
-инструкиц япо запуску:
+инструкиц по докеру:
+1. создать dockerfile
+FROM python:3.9-slim
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+COPY . .
+EXPOSE 5000
+CMD ["python", "app.py"]
+
+2. docker build -t имя_контейнера_придумать
+3. docker run -d -p 5000:5000 имя_контейнера_придумать
+4. открыть браузер с адресом контейнера
+5. адреса можно посмотреть docker ps
