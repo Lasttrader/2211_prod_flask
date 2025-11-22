@@ -4,7 +4,8 @@ from sklearn.preprocessing import LabelEncoder, MinMaxScaler
 from sklearn.neighbors import KNeighborsClassifier
 from flask import (Flask, #сервер фреймворк
                    request, #для работы с методами POST GET
-                   render_template) #взаимодействие с html
+                   render_template, #взаимодействие с html
+                   jsonify) #для работы с json по APi
 
 print("import удачно")
 
@@ -103,6 +104,18 @@ def main():
         print('result', result)
         ##return result
         return render_template('predict.html', result = result)
+
+#API
+@app.route('/api/v1/get_message/', methods = ['POST', 'GET'])
+def api_message():
+    get_x = request.json #получаем json с другого сервиса
+    #scaler
+    X_scaled = num_scaler.transform(get_x['X_for_predict'])
+    print('X_scaled', X_scaled)
+    #predict
+    prediction = kNN.predict(X_scaled)
+    return jsonify(str(prediction))
+
 
 #инсрукция для сервера
 if __name__ == '__main__':
